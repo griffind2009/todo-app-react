@@ -6,18 +6,23 @@ class ToDo extends Component {
     super(props)
     this.state = {
       items:[ "code", "laundry" ],
-      newTodo: ''
+      newTodo: '',
+      completed: false
     }
   }
 
   handleChange(e){
     this.setState({
-      newTodo: event.target.value
+      newTodo: e.target.value
     })
   }
 
   handleSubmit(e){
-    event.preventDefault()
+    e.preventDefault()
+    let oldItems = this.state.items.concat([this.state.newTodo])
+    this.setState({
+      items: oldItems
+    })
   }
 
   render() {
@@ -30,7 +35,7 @@ class ToDo extends Component {
         {items}
         <form onSubmit={e => this.handleSubmit(e)}>
         New Item:
-        <input type="text" placeholder="New Todo Item" value={this.state.newTodo} onChange={this.handleChange} />
+        <input type="text" placeholder="New Todo Item" value={this.state.newTodo} onChange={e => this.handleChange(e)} />
         <input type="submit" value="submit" />
         </form>
         </div>
