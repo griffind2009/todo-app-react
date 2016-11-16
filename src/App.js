@@ -25,9 +25,16 @@ class ToDo extends Component {
     })
   }
 
+  handleEditClick(e){
+     this.setState({
+     })
+   }
+
   render() {
     let items = this.state.items.map((item, i) => {
-      return <Item body={item} key={i} />
+      return <div>
+       <Item body={item} key={i} /><button onClick={e => this.handleEditClick(e)}>Edit</button>
+       </div>
     })
       return (
         <div>
