@@ -25,7 +25,8 @@ class ToDo extends Component {
     })
   }
 
-  handleEditClick(e){
+  handleEditClick(e,i){
+    this.state.items[i]
      this.setState({
      })
    }
